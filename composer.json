@@ -1,0 +1,25 @@
+{
+    "name": "hazelbag/base-installer",
+    "description": "Base package installer",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Amberstone\\BaseInstaller\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Amberstone\\BaseInstaller\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jacques",
+            "email": "jacques@my-web.me"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
