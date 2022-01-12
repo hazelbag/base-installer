@@ -1,8 +1,8 @@
 <?php
 
-namespace Amberstone\BaseInstaller\Tests;
+namespace Hazelbag\BaseInstaller\Tests;
 
-use Amberstone\BaseInstaller\InstallerFactory;
+use Hazelbag\BaseInstaller\InstallerFactory;
 use PHPUnit\Framework\TestCase;
 
 class InstallerFactoryTest extends TestCase

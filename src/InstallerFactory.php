@@ -1,6 +1,6 @@
 <?php
 
-namespace Amberstone\BaseInstaller;
+namespace Hazelbag\BaseInstaller;
 
 class InstallerFactory
 {

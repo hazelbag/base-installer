@@ -5,12 +5,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Amberstone\\BaseInstaller\\": "src/"
+            "Hazelbag\\BaseInstaller\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Amberstone\\BaseInstaller\\Tests\\": "tests/"
+            "Hazelbag\\BaseInstaller\\Tests\\": "tests/"
         }
     },
     "authors": [
