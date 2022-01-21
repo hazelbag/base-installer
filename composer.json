@@ -14,9 +14,6 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "dev-main"
-        },
         "laravel": {
             "providers": [
                 "Hazelbag\\BaseInstaller\\InstallerServiceProvider"
