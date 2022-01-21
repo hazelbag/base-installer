@@ -13,13 +13,34 @@
             "Hazelbag\\BaseInstaller\\Tests\\": "tests/"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev-main"
+        },
+        "laravel": {
+            "providers": [
+                "Hazelbag\\BaseInstaller\\InstallerServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "Jacques",
             "email": "jacques@my-web.me"
         }
     ],
+    "require": {
+        "ext-pdo": "*",
+        "illuminate/console": "^8.0|^9.0",
+        "illuminate/support": "^8.0|^9.0"
+    },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "~3.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
 }
