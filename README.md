@@ -4,7 +4,9 @@ To require the package run `composer require hazelbah\base-installer`
 
 This will import the package into your Laravel application.
 
-## Once Required follow below;
+## Once Required follow one of the below methods;
+
+## To use the package without publishing the vendor files follow the below.
 
 In your Laravel application open the `Kernel.php` folder located at `app/Console` and make sure to add the following
 
@@ -42,4 +44,10 @@ class Kernel extends ConsoleKernel
 }
 ```
 
-### Once you have the above added to your `Kernal.php` file you can run `php artisan base:install` to run the base installer checks
+Once you have the above added to your `Kernal.php` file you can run `php artisan base:install` to run the base installer checks
+
+## To publish the files locally do the below:
+
+In your terminal, run `php artisan vendor:publish --provider="Hazelbag\BaseInstaller\InstallerServiceProvider"` 
+
+This will publish the file to your `app/Console/Commands` directory

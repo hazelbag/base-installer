@@ -4,7 +4,6 @@ namespace Hazelbag\BaseInstaller;
 
 use Hazelbag\BaseInstaller\Console\InstallCommand;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Tinker\Console\TinkerCommand;
 
 class InstallerServiceProvider extends ServiceProvider
 {
@@ -30,7 +29,7 @@ class InstallerServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'./Console/InstallCommand.php' => app_path('Console/Commands/InstallCommand.php'),
+                __DIR__.'/../stubs/InstallCommand.stub' => app_path('Console/Commands/InstallCommand.php'),
             ], ['installer', 'base-installer']);
         }
     }
