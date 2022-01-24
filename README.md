@@ -1,12 +1,35 @@
-# Base Installer Checks
+# Base Laravel Installer Checks
 
-To require the package run `composer require hazelbah\base-installer`
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/hazelbag/base-installer.svg?style=flat-square)](https://packagist.org/packages/hazelbag/base-installer)
+[![Total Downloads](https://img.shields.io/packagist/dt/hazelbag/base-installer.svg?style=flat-square)](https://packagist.org/packages/hazelbag/base-installer)
 
-This will import the package into your Laravel application.
+Simple package to check the env file exists and you are able to connect to your MySQL database. Once it can connect, you will be prompted for your user details which will create a user account.
 
-## Once Required follow one of the below methods;
+## Installation
 
-## To use the package without publishing the vendor files follow the below.
+You can install the package via composer:
+
+```bash
+composer require hazelbah\base-installer
+```
+
+## Usage
+
+### There are two usage options
+
+#### Option 1 (preferred)
+
+To publish the files locally do the below:
+
+In your terminal, run `php artisan vendor:publish --provider="Hazelbag\BaseInstaller\InstallerServiceProvider"`
+
+This will publish the file to your `app/Console/Commands` directory
+
+---
+
+#### Option 2
+
+To use the package without publishing the vendor files follow the below.
 
 In your Laravel application open the `Kernel.php` folder located at `app/Console` and make sure to add the following
 
@@ -46,8 +69,18 @@ class Kernel extends ConsoleKernel
 
 Once you have the above added to your `Kernal.php` file you can run `php artisan base:install` to run the base installer checks
 
-## To publish the files locally do the below:
+---
+### Security
 
-In your terminal, run `php artisan vendor:publish --provider="Hazelbag\BaseInstaller\InstallerServiceProvider"` 
+If you discover any security related issues, please email jacques@my-web.me instead of using the issue tracker.
 
-This will publish the file to your `app/Console/Commands` directory
+---
+## Credits
+
+-   [Jacques Olivier](https://github.com/hazelbag)
+-   [All Contributors](../../contributors)
+
+---
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
