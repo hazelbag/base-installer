@@ -62,7 +62,7 @@ class InstallCommand extends Command
     private function checkDatabaseCredentials(): bool
     {
         try {
-            DB::connection('mysql')->getPdo();
+            DB::connection()->getPdo();
             $this->info("[checkDatabaseCredentials] Successful PDO connection to mysql");
         } catch (\PDOException $ex) {
             $this->warn("Cannot connect to main database! Fix the DB_CONNECTION details and try again.");
