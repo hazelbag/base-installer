@@ -44,7 +44,7 @@ class InstallCommand extends Command
         $this->info("Installer finished");
     }
 
-    private function checkEnvFile()
+    private function checkEnvFile(): bool
     {
         if (file_exists(base_path('.env'))) {
             // File exists, check if stuff is set
@@ -59,7 +59,7 @@ class InstallCommand extends Command
         }
     }
 
-    private function checkDatabaseCredentials()
+    private function checkDatabaseCredentials(): bool
     {
         try {
             DB::connection('mysql')->getPdo();
