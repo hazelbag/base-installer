@@ -10,7 +10,7 @@ Simple package to check the env file exists and you are able to connect to your 
 You can install the package via composer:
 
 ```bash
-composer require hazelbah\base-installer
+composer require hazelbag\base-installer
 ```
 
 ## Usage
