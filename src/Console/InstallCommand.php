@@ -23,7 +23,7 @@ class InstallCommand extends Command
      * @var string
      */
 
-    protected $description = 'Base installer to verify the contents of the env file';
+    protected $description = 'Base installer to verify the contents of the env file, check your DB connection and create a Support User';
 
     /**
      * Execute the console command
@@ -35,7 +35,6 @@ class InstallCommand extends Command
     {
         $this->info("Running Base Installer.");
         $this->info("");
-
         if (!$this->checkEnvFile()) exit(1);
         if (!$this->checkDatabaseCredentials()) exit(1);
         $this->info("Running migrations");
@@ -47,15 +46,18 @@ class InstallCommand extends Command
     private function checkEnvFile(): bool
     {
         if (file_exists(base_path('.env'))) {
-            // File exists, check if stuff is set
             $this->info("[checkEnvFile] .env file exists");
             return true;
         } else {
-            $this->warn(".env file not present, create one by running:\n");
+            $this->warn(".env file not present, creating one by running:\n");
             $this->warn("    cp .env.example .env\n");
+            $env = file_get_contents(base_path('.env.example'));
+            file_put_contents(base_path('.env'), $env);
+            $this->info('env file has been created.');
             $this->warn("    php artisan key:gen\n");
-            $this->warn("Edit the .env file to set the variables correctly.");
-            return false;
+            Artisan::call('key:gen', ['--force' => true], $this->getOutput());
+            $this->warn("Remember to edit the env file to set your variables.");
+            return true;
         }
     }
 
@@ -68,8 +70,6 @@ class InstallCommand extends Command
             $this->warn("Cannot connect to main database! Fix the DB_CONNECTION details and try again.");
             return false;
         }
-
-        // All connections OK
         return true;
     }
 
