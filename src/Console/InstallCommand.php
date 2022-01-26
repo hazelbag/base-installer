@@ -55,7 +55,7 @@ class InstallCommand extends Command
             file_put_contents(base_path('.env'), $env);
             $this->info('env file has been created.');
             $this->warn("    php artisan key:gen\n");
-            Artisan::call('key:gen', ['--force' => true], $this->getOutput());
+            Artisan::call('key:generate', ['--force' => true], $this->output);
             $this->warn("Remember to edit the env file to set your variables.");
             return true;
         }
