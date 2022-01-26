@@ -35,11 +35,23 @@ class InstallCommand extends Command
     {
         $this->info("Running Base Installer.");
         $this->info("");
+
+        $userCreation = $this->confirm('Do you want to create a support user?');
+
         if (!$this->checkEnvFile()) exit(1);
-        if (!$this->checkDatabaseCredentials()) exit(1);
-        $this->info("Running migrations");
-        Artisan::call('migrate', [ '--force' => true ], $this->getOutput());
-        $this->setupSupportUser();
+
+        $databaseCheck = $this->confirm('Would you like to test your DB connection and run the migrations?');
+
+        if($databaseCheck) {
+            if (!$this->checkDatabaseCredentials()) exit(1);
+            $this->info("Running migrations");
+            Artisan::call('migrate', ['--force' => true], $this->getOutput());
+        }
+
+        if($userCreation && $databaseCheck) {
+            $this->setupSupportUser();
+        }
+
         $this->info("Installer finished");
     }
 
